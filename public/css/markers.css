@@ -1,0 +1,135 @@
+
+    .custom-marker {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .marker-content {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .marker-red {
+      color: white;
+      background-color: #f44336;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .marker-blue {
+      color: white;
+      background-color: #1976d2;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .pulse {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+      opacity: 0;
+    }
+    
+    .marker-red .pulse {
+      background-color: rgba(244, 67, 54, 0.6);
+    }
+    
+    .marker-blue .pulse {
+      background-color: rgba(25, 118, 210, 0.6);
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+      70% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
+    
+    .custom-popup {
+      padding: 5px;
+    }
+    
+    .custom-popup h3 {
+      margin: 0 0 10px 0;
+      color: #1976d2;
+    }
+    
+    .custom-popup p {
+      margin: 5px 0;
+    }
+    
+    .custom-map-control {
+      background: white;
+      padding: 5px;
+      border-radius: 4px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+    }
+    
+    .map-control-btn {
+      width: 30px;
+      height: 30px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      display: block;
+      text-align: center;
+      line-height: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 5px;
+    }
+    
+    .map-control-btn:hover {
+      background: #f4f4f4;
+    }
+    
+    /* Notifications */
+    .notification {
+      position: fixed;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 20px;
+      border-radius: 4px;
+      color: white;
+      font-weight: 500;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      z-index: 9999;
+      transition: top 0.3s ease;
+    }
+    
+    .notification.show {
+      top: 20px;
+    }
+    
+    .notification-info {
+      background-color: #1976d2;
+    }
+    
+    .notification-success {
+      background-color: #4caf50;
+    }
+    
+    .notification-warning {
+      background-color: #ff9800;
+    }
+    
+    .notification-error {
+      background-color: #f44336;
+    }
+  

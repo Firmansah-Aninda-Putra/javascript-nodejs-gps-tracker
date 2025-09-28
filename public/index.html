@@ -1,0 +1,144 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Madiun City Ambulance Tracker</title>
+      <!-- Leaflet CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+      <!-- Google Fonts -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="/css/styles.css" />
+      <link rel="stylesheet" href="/css/markers.css" />
+      <!-- Leaflet JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+      <!-- Socket.IO -->
+      <script src="/socket.io/socket.io.js"></script>
+      <!-- Custom JS -->
+      <script src="/js/app.js"></script>
+    </head>
+    <body>
+      <!-- Navbar -->
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <img src="/images/ppid.jpg" alt="PPID Logo" class="navbar-logo">
+         
+        </div>
+        <div class="navbar-actions">
+          <a href="#" class="form-link">Emergency: 118</a>
+        </div>
+      </nav>
+      
+      <!-- Main Content -->
+      <div class="container">
+        <!-- Welcome Section -->
+        <div id="welcomeSection" class="welcome-section">
+          <h1 class="welcome-title">Madiun City Ambulance Tracker</h1>
+          <p class="welcome-subtitle">Real-time tracking system for emergency services</p>
+          
+          <img src="/images/kota madiun.jpeg" alt="Kota Madiun" class="city-image">
+          
+          <div class="button-container">
+            <button id="startBtn" class="btn btn-primary">
+              <i class="fas fa-map-marked-alt"></i> Mulai
+            </button>
+            <button id="loginAdminBtn" class="btn btn-secondary">
+              <i class="fas fa-user-shield"></i> Login Sebagai Admin
+            </button>
+          </div>
+          
+          <div class="features">
+            <div class="feature">
+              <i class="fas fa-location-arrow"></i>
+              <h3>Real-Time Tracking</h3>
+              <p>Monitor ambulance locations in real-time across Madiun City</p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-route"></i>
+              <h3>Route Visualization</h3>
+              <p>See ambulance movement paths and current routes</p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-tachometer-alt"></i>
+              <h3>Status Updates</h3>
+              <p>Get instant alerts on ambulance movement and availability</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Login Section -->
+        <div id="loginSection" class="login-container" style="display: none;">
+          <h2 class="section-title">Admin Login</h2>
+          <div class="form-group">
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" id="username" placeholder="Enter username" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" id="password" placeholder="Enter password" class="form-control">
+          </div>
+          <button id="loginBtn" class="btn btn-primary">
+            <i class="fas fa-sign-in-alt"></i> Login
+          </button>
+          <p class="form-text mt-3 text-center">
+            <a href="#" id="backToHomeBtn" class="form-link">
+              <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+          </p>
+        </div>
+
+        <!-- Admin Panel -->
+        <div id="adminPanel" class="admin-panel" style="display: none;">
+          <h2 class="section-title">Admin Control Panel</h2>
+          <p id="adminInfo" class="admin-welcome"></p>
+          
+          <div class="admin-controls">
+            <button id="startTrackingBtn" class="btn btn-success">
+              <i class="fas fa-play-circle"></i> Start GPS Tracking
+            </button>
+            <button id="stopTrackingBtn" class="btn btn-danger" style="display: none;">
+              <i class="fas fa-stop-circle"></i> Stop GPS Tracking
+            </button>
+            <button id="viewMapBtn" class="btn btn-primary">
+              <i class="fas fa-map"></i> View Map
+            </button>
+            <button id="logoutBtn" class="btn btn-secondary">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+          </div>
+          
+          <div id="statusMessage" class="status-message"></div>
+        </div>
+
+        <!-- Map Section -->
+        <div id="mapSection" class="map-container" style="display: none;">
+          <h2 class="section-title">Lokasi Ambulan</h2>
+          
+          <div id="map"></div>
+          
+          <div class="controls-section">
+            <div class="control-group">
+              <input type="checkbox" id="autoFocus" class="control-checkbox" checked>
+              <label for="autoFocus">Auto-focus on ambulance</label>
+            </div>
+          </div>
+          
+          <div id="ambulanceList" class="ambulance-list"></div>
+          
+          <button id="backToLoginBtn" class="btn btn-secondary mt-3">
+            <i class="fas fa-arrow-left"></i> Back to Login
+          </button>
+        </div>
+      </div>
+      
+      <!-- Footer -->
+      <footer class="footer">
+        <p class="footer-text">© 2025 Madiun City Emergency Services. All rights reserved.</p>
+      </footer>
+    </body>
+    </html>
+  
